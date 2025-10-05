@@ -27,7 +27,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()  # Подтверждаем нажатие
     if query.data == 'start_button':
-        await query.edit_message_text(text="подпишись на всех t.me/letsteachenglish") # Сюда добавляем реферальные ссылки
+        await query.edit_message_text(text="Привет🤗 Для участия в рассылке подпишись на все каналы: t.me/letsteachenglish") # Сюда добавляем реферальные ссылки
 
 async def send_scheduled_message(context: ContextTypes.DEFAULT_TYPE):
     conn = sqlite3.connect(DB_FILENAME)
@@ -109,7 +109,7 @@ async def check_subscriptions(update: Update, context: ContextTypes.DEFAULT_TYPE
 
     if all_subscribed:
         add_or_update_subscriber(user_id, username, True)
-        results.append("\nВы успешно добавлены в список рассылки!")
+        results.append("\nВы успешно добавлены в список рассылки! Материалы будут отправлены Вам n-ую дату!")
     else:
         add_or_update_subscriber(user_id, username, False)
         results.append("\nПожалуйста, подпишитесь на все каналы, чтобы участвовать в рассылке.")
